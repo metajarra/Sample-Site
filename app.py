@@ -6,29 +6,29 @@ app = Flask(__name__)
 def index():
 
     # Load current count
-    f = open("marker_count.txt", "r")
-    count = int(f.read())
-    f.close()
+#    f = open("marker_count.txt", "r")
+#    count = int(f.read())
+#    f.close()
 
     # Increment the count
-    count += 1
+#    count += 1
 
     # Overwrite the count
-    f = open("marker_count.txt", "w")
-    f.write(str(count))
-    f.close()
+#    f = open("marker_count.txt", "w")
+#    f.write(str(count))
+#    f.close()
 
-    g = open("markers.txt", "r")
-    gcontent = str(g.read())
-    g.close()
+#    g = open("markers.txt", "r")
+#    gcontent = str(g.read())
+#    g.close()
 
-    g = open("markers.txt", "w")
-    newMarker = gcontent + "\nfour"
-    g.write(str(newMarker))
-    g.close()
+#    g = open("markers.txt", "w")
+#    newMarker = gcontent + "MX|latitude|longitude|content"
+#    g.write(str(newMarker))
+#    g.close()
 
     # Render HTML with count variable
-    return render_template("index.html", count=count, gcontent=gcontent)
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run()

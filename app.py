@@ -24,7 +24,7 @@ def index():
     g.close()
 
     g = open("markers.txt", "r")
-    length = str(g)
+    length = str(g.read())
     g.close()
 
     # Render HTML with count variable

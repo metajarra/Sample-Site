@@ -3,7 +3,7 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route("/")
-def index():
+def geo():
 
     # Load current count
 #    f = open("marker_count.txt", "r")
@@ -29,6 +29,14 @@ def index():
 
     # Render HTML with count variable
     return render_template("geo.html")
+
+@app.route("/makepost")
+def makepost():
+    return render_template("makepost.html")
+
+@app.route("/seeposts")
+def seeposts():
+    return render_template("seeposts.html")
 
 if __name__ == "__main__":
     app.run()

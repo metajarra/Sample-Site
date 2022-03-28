@@ -23,7 +23,7 @@ def index():
     g.close()
 
     g = open("markers.txt", "w")
-    newMarker = gcontent + "four"
+    newMarker = gcontent + "\nfour"
     g.write(str(newMarker))
     g.close()
 

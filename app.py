@@ -18,17 +18,17 @@ def index():
     f.write(str(count))
     f.close()
 
+    g = open("markers.txt", "r")
+    gcontent = str(g.read())
+    g.close()
+
     g = open("markers.txt", "w")
-    newMarker = "four"
+    newMarker = gcontent + "four"
     g.write(str(newMarker))
     g.close()
 
-    g = open("markers.txt", "r")
-    length = str(g.read())
-    g.close()
-
     # Render HTML with count variable
-    return render_template("index.html", count=count, length=length)
+    return render_template("index.html", count=count, gcontent=gcontent)
 
 if __name__ == "__main__":
     app.run()

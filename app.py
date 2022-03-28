@@ -28,7 +28,7 @@ def index():
 #    g.close()
 
     # Render HTML with count variable
-    return render_template("index.html")
+    return render_template("geo.html")
 
 if __name__ == "__main__":
     app.run()

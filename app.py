@@ -18,25 +18,20 @@ def index():
     f.write(str(count))
     f.close()
 
+    g = open("markers.txt", "w")
+    newMarker = "four"
+    g.write(str(newMarker))
+    g.close()
+
+    g = open("markers.txt", "r")
+    length = len(str(g))
+    g.close()
+
     # Render HTML with count variable
-    return render_template("index.html", count=count)
+    return render_template("index.html", count=count, length=length)
 
 if __name__ == "__main__":
     app.run()
 
 # The goal of this app is to show messages sent across space, not across time
 # Messages are organized according to the lat/long of where they were sent from (rounded to int)
-
-#@app.route("/")
-#def post():
-#    # Adding a new marker
-#    f = open("marker_count.txt", "r")
-#    count = int(f.read())
-#    count += 1
-#    f.write(str(count))
-#    f.close()
-
-#    return render_template("index.html", count=count)
-
-#if __name__ == "__main__":
-#    app.run()

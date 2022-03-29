@@ -25,17 +25,30 @@
     }
 </style>
 
+<script>
+    function makePost() {
+        text = document.getElementById("text").value;
+        lat = parseInt(document.getElementById("latitude").value);
+        long = parseInt(document.getElementById("longitude").value);
+
+        message = text + "|" + lat + "|" + long;
+        alert(message);
+    }
+</script>
+
 <div class="center-screen">
     <label for="text">Text:</label>
     <input type="text" id="text" name="text"><br><br>
 
-    <label for="lat">Latitude:</label>
+    <label for="latitude">Latitude:</label>
     <input type="text" id="latitude" name="latitude"><br><br>
 
-    <label for="longitude">longitude:</label>
+    <label for="longitude">Longitude:</label>
     <input type="text" id="longitude" name="longitude"><br><br>
 
-    <a href="seeposts">
-        <button type="button">Post</button>
-    </a>
+    <button type="button" onclick="makePost()">Post</button>
+
+    <!--<a href="seeposts">
+        
+    </a>-->
 </div>

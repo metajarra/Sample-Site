@@ -15,10 +15,10 @@ def makepost():
 def seeposts():
     return render_template("seeposts.html", map = "https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg")
 
-if __name__ == "__main__":
-    app.run()
+@app.route("/writetomarkers")
+def writeToMarkers(text, lat, long):
+    message = text + "|" + lat + "|" + long
 
-def writeToMarkers(message):
     m = open("marker_count.txt", "r")
     n = open("markers.txt", "r")
 
@@ -39,6 +39,9 @@ def writeToMarkers(message):
 
     m.close()
     n.close()
+
+if __name__ == "__main__":
+    app.run()
 
 # The goal of this app is to show messages sent across space, not across time
 # Messages are organized according to the lat/long of where they were sent from (rounded to int)

@@ -1,9 +1,6 @@
 import os
 from flask import Flask, render_template
 
-FOLDER = os.path.join("images", "folder")
-app.config["UPLOAD_FOLDER"] = FOLDER
-
 app = Flask(__name__)
 
 @app.route("/")
@@ -16,7 +13,7 @@ def makepost():
 
 @app.route("/seeposts")
 def seeposts():
-    full_filename = os.path.join(app.config["UPLOAD_FOLDER"], "Equirectangular_projection_SW.png")
+    full_filename = os.path.join("images", "Equirectangular_projection_SW.png")
     return render_template("seeposts.html", map = full_filename)
 
 if __name__ == "__main__":

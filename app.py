@@ -13,8 +13,7 @@ def makepost():
 
 @app.route("/seeposts")
 def seeposts():
-    full_filename = os.path.join("images", "Equirectangular_projection_SW.png")
-    return render_template("seeposts.html", map = "./images/Equirectangular_projection_SW.png")
+    return render_template("seeposts.html", map = "https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg")
 
 if __name__ == "__main__":
     app.run()

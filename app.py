@@ -14,7 +14,7 @@ def makepost():
 @app.route("/seeposts")
 def seeposts():
     full_filename = os.path.join("images", "Equirectangular_projection_SW.png")
-    return render_template("seeposts.html", map = full_filename)
+    return render_template("seeposts.html", map = "https://lumiere-a.akamaihd.net/v1/images/databank_watto_01_169_ecd563f1.jpeg?region=0%2C0%2C1560%2C780")
 
 if __name__ == "__main__":
     app.run()

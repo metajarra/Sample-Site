@@ -40,6 +40,8 @@ def writeToMarkers(text, lat, long):
     m.close()
     n.close()
 
+    print("deez")
+
 if __name__ == "__main__":
     app.run()
 

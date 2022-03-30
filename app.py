@@ -14,7 +14,11 @@ def makepost():
 
 @app.route("/seeposts")
 def seeposts():
-    return render_template("seeposts.html", map = "https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg")
+    n = open("markers.txt", "r")
+    _markers = n.read()
+    n.close()
+
+    return render_template("seeposts.html", map = "https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg", marker = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Roundel_of_Turkey.svg/120px-Roundel_of_Turkey.svg.png", markers = _markers)
 
 @app.route("/writetomarkers", methods=["POST", "GET"])
 def writeToMarkers():    
@@ -23,12 +27,13 @@ def writeToMarkers():
     lat = output["latitude"]
     long = output["longitude"]
     
-    message = text + "|" + lat + "|" + long
-
     m = open("marker_count.txt", "r")
     n = open("markers.txt", "r")
 
     current_m = int(m.read())
+
+    message = str(current_m) + "|" + text + "|" + lat + "|" + long
+    
     current_m += 1
 
     current_n = n.read()
@@ -40,7 +45,7 @@ def writeToMarkers():
     n = open("markers.txt", "w")
 
     m.write(str(current_m))
-    n.write(current_n + "\n" + message)
+    n.write(current_n + "&" + message)
 
     m.close()
     n.close()

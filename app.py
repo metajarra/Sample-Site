@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, request
 
 app = Flask(__name__)
 
@@ -13,10 +13,26 @@ def makepost():
 
 @app.route("/seeposts")
 def seeposts():
-    return render_template("seeposts.html", map = "https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg")
+    #return render_template("seeposts.html", map = "https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg")
 
-@app.route("/writetomarkers")
-def writeToMarkers(text, lat, long):
+    m = open("marker_count.txt", "r")
+    n = open("markers.txt", "r")
+
+    current_m = int(m.read())
+    current_n = n.read()
+
+    m.close()
+    n.close()
+
+    return render_template("seeposts.html", content = current_n, size = current_m)
+
+@app.route("/writetomarkers", methods=["POST", "GET"])
+def writeToMarkers():
+    output = request.form.to_dict()
+    text = output["text"]
+    lat = output["latitude"]
+    long = output["longitude"]
+    
     message = text + "|" + lat + "|" + long
 
     m = open("marker_count.txt", "r")
@@ -40,7 +56,7 @@ def writeToMarkers(text, lat, long):
     m.close()
     n.close()
 
-    print("deez")
+    return render_template("makepost.html")
 
 if __name__ == "__main__":
     app.run()

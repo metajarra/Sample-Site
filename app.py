@@ -31,11 +31,16 @@ def writeToMarkers():
     m = open("marker_count.txt", "r")
 
     current_m = int(m.read())
-    
-    m.close()
-
     current_m += 1
 
+    m.close()
+
+    m = open("marker_count.txt", "w")
+
+    m.write(str(current_m))
+
+    m.close()
+    
     output = request.form.to_dict()
 #    text = output["text"]
 #    lat = output["latitude"]

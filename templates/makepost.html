@@ -37,18 +37,18 @@
 </script>
 
 <div class="center-screen">
-    <label for="text">Text:</label>
-    <input type="text" id="text" name="text"><br><br>
+    <form action="/writetomarkers" method="POST">
+        <label for="text">Text:</label>
+        <input type="text" id="text" name="text"><br><br>
 
-    <label for="latitude">Latitude:</label>
-    <input type="text" id="latitude" name="latitude"><br><br>
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" name="latitude"><br><br>
 
-    <label for="longitude">Longitude:</label>
-    <input type="text" id="longitude" name="longitude"><br><br>
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="longitude"><br><br>
 
-    <a href="/writetomarkers">
-        <button type="button">Post</button>
-    </a>
+        <input class="file_submit" type="Submit">
+    </form>
 
     <!--<a href="seeposts">
         

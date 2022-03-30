@@ -37,17 +37,24 @@ def writeToMarkers():
     message = text + "|" + lat + "|" + long
 
     m = open("marker_count.txt", "r")
+    n = open("markers.txt", "r")
 
     current_m = int(m.read())
     current_m += 1
 
+    current_n = n.read()
+
     m.close()
+    n.close()
 
     m = open("marker_count.txt", "w")
+    n = open("markers.txt", "w")
 
     m.write(str(current_m))
+    n.write(current_n + "\n" + message)
 
     m.close()
+    n.close()
 
     return render_template("makepost.html")
 

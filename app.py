@@ -14,18 +14,7 @@ def makepost():
 
 @app.route("/seeposts")
 def seeposts():
-    #return render_template("seeposts.html", map = "https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg")
-
-    m = open("marker_count.txt", "r")
-    n = open("markers.txt", "r")
-
-    current_m = int(m.read())
-    current_n = n.read()
-
-    m.close()
-    n.close()
-
-    return render_template("seeposts.html", content = current_n, size = current_m)
+    return render_template("seeposts.html", map = "https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg")
 
 @app.route("/writetomarkers", methods=["POST", "GET"])
 def writeToMarkers():    

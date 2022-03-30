@@ -24,7 +24,7 @@ def seeposts():
     m.close()
     n.close()
 
-    return render_template("seeposts.html", content = current_n, size = current_m)
+    return render_template("seeposts.html")
 
 @app.route("/writetomarkers", methods=["POST", "GET"])
 def writeToMarkers():

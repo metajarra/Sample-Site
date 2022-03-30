@@ -25,17 +25,6 @@
     }
 </style>
 
-<script>
-    function makePost() {
-        text = document.getElementById("text").value;
-        lat = parseInt(document.getElementById("latitude").value);
-        long = parseInt(document.getElementById("longitude").value);
-
-        message = text + "|" + lat + "|" + long;
-        alert(message);
-    }
-</script>
-
 <div class="center-screen">
     <form action="/writetomarkers" method="POST">
         <label for="text">Text:</label>

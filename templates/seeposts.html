@@ -24,16 +24,16 @@
         <div class="parent" width="3087" height="1554">
             <div class="image1">
                 <img src="{{ map }}" width="3087" height="1554">
+                <img id="testimage" class="image2" style="top: 400px; left: 200px;" src="{{ marker }}" width="24" height="24">
 
                 {% if markers %}
 
                     <script>
-                        let x = Math.floor(Math.random() * 3087);
-                        let y = Math.floor(Math.random() * 1554);
+                        let x = Math.floor(Math.random() * 3062);
+                        let y = Math.floor(Math.random() * 1529);
 
-                        let element = document.createElement("img");
-                        element.innerHTML = '<img class="image2" style="top: 400px; left:200px;" src="{{ marker }}" width="24" height="24">';
-                        console.log(x.toString() + ", " + y.toString());
+                        let element = document.getElementById("testimage");
+                        console.log(element.innerHTML);
                     </script>
 
                 {% endif %}

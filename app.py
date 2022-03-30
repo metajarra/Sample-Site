@@ -28,25 +28,20 @@ def seeposts():
 
 @app.route("/writetomarkers", methods=["POST", "GET"])
 def writeToMarkers():
+    m = open("marker_count.txt", "r")
+
+    current_m = int(m.read())
+    
+    m.close()
+
+    current_m += 1
+
     output = request.form.to_dict()
 #    text = output["text"]
 #    lat = output["latitude"]
 #    long = output["longitude"]
     
 #    message = text + "|" + lat + "|" + long
-
-    m = open("marker_count.txt", "r")
-
-    current_m = int(m.read())
-    current_m += 1
-
-    m.close()
-
-    m = open("marker_count.txt", "w")
-
-    m = current_m
-
-    m.close()
 
     return render_template("makepost.html")
 

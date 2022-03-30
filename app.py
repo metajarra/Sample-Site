@@ -24,37 +24,37 @@ def seeposts():
     m.close()
     n.close()
 
-    return render_template("seeposts.html")
+    return render_template("seeposts.html", content = current_n, size = current_m)
 
 @app.route("/writetomarkers", methods=["POST", "GET"])
 def writeToMarkers():
     output = request.form.to_dict()
-    text = output["text"]
-    lat = output["latitude"]
-    long = output["longitude"]
+#    text = output["text"]
+#    lat = output["latitude"]
+#    long = output["longitude"]
     
-    message = text + "|" + lat + "|" + long
+#    message = text + "|" + lat + "|" + long
 
-    m = open("marker_count.txt", "r")
-    n = open("markers.txt", "r")
+#    m = open("marker_count.txt", "r")
+#    n = open("markers.txt", "r")
 
-    current_m = int(m.read())
-    current_n = n.read()
+#    current_m = int(m.read())
+#    current_n = n.read()
 
-    m.close()
-    n.close()
+#    m.close()
+#    n.close()
 
-    new_m = current_m + 1
-    new_n = current_n + "\n" + message
+#    new_m = current_m + 1
+#    new_n = current_n + "\n" + message
 
-    m = open("marker_count.txt", "w")
-    n = open("markers.txt", "w")
+#    m = open("marker_count.txt", "w")
+#    n = open("markers.txt", "w")
 
-    m.write(new_m)
-    n.write(new_n)
+#    m.write(new_m)
+#    n.write(new_n)
 
-    m.close()
-    n.close()
+#    m.close()
+#    n.close()
 
     return render_template("makepost.html")
 

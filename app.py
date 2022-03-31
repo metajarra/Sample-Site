@@ -55,7 +55,7 @@ def writeToMarkers():
 @app.route("/display", methods=["POST", "GET"])
 def display():
     output = request.form.to_dict()
-    serial = output["M0"]
+   # serial = output["M0"]
 
     n = open("markers.txt", "r")
 

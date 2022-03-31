@@ -55,7 +55,7 @@ def writeToMarkers():
 @app.route("/display", methods=["POST", "GET"])
 def display():
     output = request.form.to_dict()
-   # serial = output["M0"]
+    serial = output["M0"]
 
     n = open("markers.txt", "r")
 
@@ -63,7 +63,7 @@ def display():
 
     n.close()
 
-    return render_template("display.html", content = ncontent)
+    return render_template("display.html", content = serial)
 
 if __name__ == "__main__":
     app.run()

@@ -52,8 +52,9 @@ def writeToMarkers():
 
     return render_template("makepost.html")
     
-@app.route("/display")
+@app.route("/display", methods=["POST", "GET"])
 def display():
+    output = request.form.to_dict()
     return render_template("display.html")
 
 if __name__ == "__main__":

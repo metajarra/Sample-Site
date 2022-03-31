@@ -68,11 +68,13 @@
                                     console.log("LATITUDE: " + markers.substring(breaks[j - 1], breaks[j]));
                                     
                                     if(i < newbreaks.length){
-                                        console.log("LONGITUDE: " + markers.substring(breaks[j], newbreaks[i]));
+                                        console.log("method 1");
+                                        console.log("LONGITUDE: " + markers.substring(breaks[j], newbreaks[i + 1]));
                                     }
 
                                     else{
-                                        console.log("LONGITUDE: " + markers.substring(breaks[j], markers.length()))
+                                        console.log("method 2");
+                                        console.log("LONGITUDE: " + markers.substring(breaks[j], markers.length()));
                                     }
                                 }
                             }

@@ -32,11 +32,19 @@
                         let y = Math.floor(Math.random() * 400);
 
                         let newimage = document.createElement("img");
+
                         newimage.class = "image2";
                         newimage.style = "top: " + x.toString() + "px; left: " + y.toString() + "px;";
                         newimage.src = "{{ marker }}";
                         newimage.width = "24";
                         newimage.height = "24";
+                        
+                        console.log(newimage.class);
+                        console.log(newimage.style);
+                        console.log(newimage.src);
+                        console.log(newimage.width);
+                        console.log(newimage.height);
+
                         document.getElementById("image1").appendChild(newimage);
                     </script>
 

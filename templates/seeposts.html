@@ -22,7 +22,7 @@
 <body> <!--position guide: 8.5 px = 1 degree. prime meridian: 1531 px, equator: 765 px-->
     <form method="/POST">
         <div class="parent" width="3087" height="1554">
-            <div class="image1">
+            <div id="image1" class="image1">
                 <img src="{{ map }}" width="3087" height="1554">
                 <img id="testimage" class="image2" style="top: 400px; left: 200px;" src="{{ marker }}" width="24" height="24">
                 <img id="testimage2" class="image2" style="top: 600px; left: 200px;" src="{{ marker }}" width="24" height="24">
@@ -30,12 +30,16 @@
                 {% if markers %}
 
                     <script>
-                        let x = Math.floor(Math.random() * 3062);
-                        let y = Math.floor(Math.random() * 1529);
+                        let x = Math.floor(Math.random() * 400);
+                        let y = Math.floor(Math.random() * 400);
 
-                        let element = document.getElementById("testimage");
-                        element.style = "top: 400px; left: 400px;";
-                        element.height="50";
+                        let newimage = document.createElement("img");
+                        newimage.class = "image2";
+                        newimage.style = "top: " + x + "px; left: " + y + "px;";
+                        newimage.src = "{{ marker }}";
+                        newimage.width = "24";
+                        newimage.height = "24";
+                        document.getElementById("image1").appendChild(newimage);
                     </script>
 
                 {% endif %}

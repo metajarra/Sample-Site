@@ -89,11 +89,13 @@
                                 }
                             }
 
-                            lat -= 90;
-                            long -= 180;
+                            lat += 90;
+                            long += 180;
 
+                            /*
                             lat *= -1;
                             long *= -1;
+                            */
 
                             let x = lat * 8.5 + 765;
                             let y = long * 8.5 + 1531;

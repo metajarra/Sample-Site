@@ -25,6 +25,7 @@
             <div class="image1">
                 <img src="{{ map }}" width="3087" height="1554">
                 <img id="testimage" class="image2" style="top: 400px; left: 200px;" src="{{ marker }}" width="24" height="24">
+                <img id="testimage2" class="image2" style="top: 600px; left: 200px;" src="{{ marker }}" width="24" height="24">
 
                 {% if markers %}
 
@@ -33,7 +34,7 @@
                         let y = Math.floor(Math.random() * 1529);
 
                         let element = document.getElementById("testimage");
-                        console.log(element.innerHTML.toString());
+                        element.innerHTML = "<img id=\"testimage\" class=\"image2\" style=\"top: 400px; left: 200px;\" src=\"{{ marker }}\" width=\"50\" height=\"50\">"
                     </script>
 
                 {% endif %}

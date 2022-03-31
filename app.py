@@ -51,6 +51,10 @@ def writeToMarkers():
     n.close()
 
     return render_template("makepost.html")
+    
+@app.route("/display")
+def display():
+    return render_template("display.html")
 
 if __name__ == "__main__":
     app.run()

@@ -28,9 +28,11 @@
                 {% if markers %}
 
                     <script>
-                        console.log("{{ markers }}");
-                        markers = "{{ markers }}";
-                        console.log(markers);
+                        let markers = "{{ markers }}";
+
+                        for(let i = 0; i < markers.length; i++){
+                            console.log(markers.charAt(i));
+                        }
 
                         let x = Math.floor(Math.random() * 400);
                         let y = Math.floor(Math.random() * 400);
@@ -50,8 +52,6 @@
                         console.log(newimage.height);
 
                         document.getElementById("image1").appendChild(newimage);
-
-                        console.log(newimage.parentElement.class);
                     </script>
 
                 {% endif %}

@@ -45,7 +45,7 @@ def writeToMarkers():
     n = open("markers.txt", "w")
 
     m.write(str(current_m))
-    n.write(current_n + "&" + message)
+    n.write(current_n + "/" + message)
 
     m.close()
     n.close()

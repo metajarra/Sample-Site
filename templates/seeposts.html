@@ -96,12 +96,17 @@
 
                             newimage.className = "image2";
                             newimage.style = "background: {{ marker }}; top: " + y.toString() + "px; left: " + x.toString() + "px;";
+                            newimage.onclick = "wow()";
                             newimage.serial = serial;
                             newimage.src = "{{ marker }}";
                             newimage.width = "24";
                             newimage.height = "24";
                             
                             document.getElementById("image1").appendChild(newimage);
+                        }
+
+                        function wow(){
+                            console.log("wow");
                         }
                     </script>
 

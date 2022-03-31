@@ -25,7 +25,6 @@
             <div class="image1">
                 <img src="{{ map }}" width="3087" height="1554">
                 <img id="testimage" class="image2" style="top: 400px; left: 200px;" src="{{ marker }}" width="24" height="24">
-                <p id="testpara">deez</p>
 
                 {% if markers %}
 
@@ -34,10 +33,7 @@
                         let y = Math.floor(Math.random() * 1529);
 
                         let element = document.getElementById("testimage");
-                        console.log(element.innerHTML);
-
-                        let para = document.getElementById("testpara");
-                        console.log(para.innerHTML);
+                        console.log(element.innerHTML.toString());
                     </script>
 
                 {% endif %}

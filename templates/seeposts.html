@@ -24,8 +24,6 @@
         <div class="parent" width="3087" height="1554">
             <div id="image1" class="image1">
                 <img src="{{ map }}" width="3087" height="1554">
-                <img id="testimage" class="image2" style="top: 400px; left: 200px;" src="{{ marker }}" width="24" height="24">
-                <img id="testimage2" class="image2" style="top: 600px; left: 200px;" src="{{ marker }}" width="24" height="24">
 
                 {% if markers %}
 
@@ -35,7 +33,7 @@
 
                         let newimage = document.createElement("img");
                         newimage.class = "image2";
-                        newimage.style = "top: " + x + "px; left: " + y + "px;";
+                        newimage.style = "top: " + x.toString() + "px; left: " + y.toString() + "px;";
                         newimage.src = "{{ marker }}";
                         newimage.width = "24";
                         newimage.height = "24";

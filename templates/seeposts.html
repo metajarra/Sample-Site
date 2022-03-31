@@ -29,10 +29,52 @@
 
                     <script>
                         let markers = "{{ markers }}";
+                        let breaks = [];
+                        let newbreaks = [];
 
                         for(let i = 0; i < markers.length; i++){
                             if(markers.charAt(i) == "|"){
-                                console.log(markers.substring(0, i));
+                                breaks.push(i);
+                            }
+
+                            else if(markers.charAt(i) == "/"){
+                                newbreaks.push(i);
+                            }
+
+                            // The content between every element in newbreaks[] ("/") is a unique message
+                            // The content between every element in breaks[] ("|") is as follows:
+                            /*
+                            - The first |, and every third | following it (any | where index(|) = 1 + 3n, where n is a nonnegative integer), delineates the split between serial number and text content
+                               - The serial number is the text between any / and the appropriate |
+                            - The second |, and every third | following it, delineates the split between the text and the first coordinate (lat)
+                               - The text is the text between the appropriate | and the previous |
+                            - The third |, and every third | following it, delineates the split between the first coordinate and the second coordinate (long)
+                               - The latitude is the text between the appropriate | and the previous |
+                               - The longitude is the text between the appropriate | and the next /
+                            */
+                        }
+
+                        for(let i = 0; i < newbreaks.length; i++){
+                            for(let j = 0; j < breaks.length; j++){
+                                if((j - 1) % 3 == 0){
+                                    console.log("SERIAL NUMBER: " + messages.substring(newbreaks[i], breaks[j]));
+                                }
+
+                                else if((j - 2) % 3 == 0){
+                                    console.log("TEXT: " + messages.substring(breaks[j - 1], breaks[j]));
+                                }
+
+                                else if(j % 3 == 0){
+                                    console.log("LATITUDE: " + messages.substring(breaks[j - 1], breaks[j]));
+                                    
+                                    if(i < newbreaks.length()){
+                                        console.log("LONGITUDE: " + messages.substring(breaks[j], newbreaks[i]));
+                                    }
+
+                                    else{
+                                        console.log("LONGITUDE: " + messages.substring(breaks[j], messages.length()))
+                                    }
+                                }
                             }
                         }
 

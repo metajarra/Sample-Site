@@ -92,18 +92,20 @@
                             let x = long * 8.5 + 1531;
                             let y = lat * -8.5 + 765;
 
-                            const newimage = document.createElement("input");
+                            const newimage = document.createElement("img");
+                            const imagelink = document.createElement("a");
 
-                            newimage.type = "image";
                             newimage.className = "image2";
-                            newimage.style = "background: transparent; border: none; top: " + y.toString() + "px; left: " + x.toString() + "px;";
+                            newimage.style = "top: " + y.toString() + "px; left: " + x.toString() + "px;";
                             newimage.serial = serial;
-                            newimage.onclick = "wow()";
                             newimage.src = "{{ marker }}";
                             newimage.width = "24";
                             newimage.height = "24";
                             
-                            document.getElementById("image1").appendChild(newimage);
+                            imagelink.href = "geo";
+
+                            document.getElementById("image1").appendChild(imagelink);
+                            imagelink.appendChild(newimage);
                         }
 
                         function wow(){

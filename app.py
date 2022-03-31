@@ -32,7 +32,7 @@ def writeToMarkers():
 
     current_m = int(m.read())
 
-    message = str(current_m) + "|" + text + "|" + lat + "|" + long
+    message = "M" + str(current_m) + "|" + text + "|" + lat + "|" + long
     
     current_m += 1
 

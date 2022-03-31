@@ -92,11 +92,11 @@
                             let x = long * 8.5 + 1531;
                             let y = lat * -8.5 + 765;
 
-                            const newimage = document.createElement("button");
+                            const newimage = document.createElement("input");
 
+                            newimage.type = "image";
                             newimage.className = "image2";
-                            newimage.style = "background: {{ marker }}; top: " + y.toString() + "px; left: " + x.toString() + "px;";
-                            newimage.onclick = "wow()";
+                            newimage.style = "top: " + y.toString() + "px; left: " + x.toString() + "px;";
                             newimage.serial = serial;
                             newimage.src = "{{ marker }}";
                             newimage.width = "24";

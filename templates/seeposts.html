@@ -20,7 +20,7 @@
 <!--map jpg: https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg-->
 
 <body> <!--position guide: 8.5 px = 1 degree. prime meridian: 1531 px, equator: 765 px-->
-    <form method="/POST">
+    <form action="/display" method="/POST">
         <div class="parent" width="3087" height="1554">
             <div id="image1" class="image1">
                 <img src="{{ map }}" width="3087" height="1554">
@@ -93,7 +93,7 @@
                             let y = lat * -8.5 + 765;
 
                             const newimage = document.createElement("img");
-                            const imagelink = document.createElement("a");
+                            const imagelink = document.createElement("input");
 
                             newimage.className = "image2";
                             newimage.style = "top: " + y.toString() + "px; left: " + x.toString() + "px;";
@@ -102,12 +102,11 @@
                             newimage.width = "24";
                             newimage.height = "24";
                             
-                            imagelink.href = "display";
+                            imagelink.class = "file_submit";
+                            imagelink.type = "Submit";
 
                             document.getElementById("image1").appendChild(imagelink);
                             imagelink.appendChild(newimage);
-
-                            console.log("newimage serial: " + newimage.name);
                         }
                     </script>
 

@@ -55,7 +55,7 @@
                         }
 
                         for(let i = 0; i < newbreaks.length; i++){
-                            for(let j = 0; j < breaks.length; j++){
+                            for(let j = 0; j < 3; j++){
                                 if(j % 3 == 0){
                                     console.log("SERIAL NUMBER: " + markers.substring(newbreaks[i] + 1, breaks[j]));
                                 }
@@ -74,9 +74,9 @@
                                     else{
                                         console.log("LONGITUDE: " + markers.substring(breaks[j] + 1, markers.length()));
                                     }
+                                    
+                                    console.log("------");
                                 }
-
-                                console.log("------");
                             }
                         }
 

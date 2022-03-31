@@ -56,15 +56,15 @@
 
                         for(let i = 0; i < newbreaks.length; i++){
                             for(let j = 0; j < breaks.length; j++){
-                                if((j - 1) % 3 == 0){
+                                if(j % 3 == 0){
                                     console.log("SERIAL NUMBER: " + markers.substring(newbreaks[i], breaks[j]));
                                 }
 
-                                else if((j - 2) % 3 == 0){
+                                else if((j - 1) % 3 == 0){
                                     console.log("TEXT: " + markers.substring(breaks[j - 1], breaks[j]));
                                 }
 
-                                else if(j % 3 == 0){
+                                else if((j - 2) % 3 == 0){
                                     console.log("LATITUDE: " + markers.substring(breaks[j - 1], breaks[j]));
                                     
                                     if(i < newbreaks.length){

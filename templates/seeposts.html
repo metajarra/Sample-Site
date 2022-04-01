@@ -95,19 +95,15 @@
                             const newimage = document.createElement("input");
 
                             newimage.type = "image"
-                            newimage.name = "serial";
+                            newimage.value = "VALUE" + parseInt(serial.charAt(1));
+                            newimage.name = serial;
                             newimage.className = "image2";
                             newimage.style = "background: transparent; border: none; top: " + y.toString() + "px; left: " + x.toString() + "px;";
                             newimage.src = "{{ marker }}";
                             newimage.width = "24";
                             newimage.height = "24";
-                            newimage.onclick = "markSelf()";
                             
                             document.getElementById("image1").appendChild(newimage);
-
-                            function markSelf(){
-                                console.log("Name: ");
-                            }
                         }
                     </script>
 

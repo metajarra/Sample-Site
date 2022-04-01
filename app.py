@@ -55,11 +55,12 @@ def writeToMarkers():
 @app.route("/display", methods=["POST", "GET"])
 def display():
     output = "zoop"
-    if request.form["marker_button"] == "M0":
-        output = "M0"
+    if request.method == "POST":
+        if request.form.get("marker_button") == "M0":
+            output = "M0"
 
-    elif request.form["marker_button"] == "M1":
-        output = "M1"
+        elif request.form.get("marker_button") == "M1":
+            output = "M1"
 
     return render_template("display.html", content = output)
 

@@ -54,12 +54,14 @@ def writeToMarkers():
     
 @app.route("/display", methods=["POST", "GET"])
 def display():
+    output = "zoop"
     if request.form.get("M0") == "VALUE0":
         output = "M0"
+
     elif request.form.get("M1") == "VALUE1":
         output = "M1"
 
-    return render_template("display.html", content = "amogus")
+    return render_template("display.html", content = output)
 
 if __name__ == "__main__":
     app.run()

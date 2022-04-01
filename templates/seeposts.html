@@ -95,20 +95,18 @@
                             const newimage = document.createElement("input");
 
                             newimage.type = "image"
-                            newimage.name = serial;
+                            newimage.name = "serial";
                             newimage.className = "image2";
                             newimage.style = "background: transparent; border: none; top: " + y.toString() + "px; left: " + x.toString() + "px;";
                             newimage.src = "{{ marker }}";
                             newimage.width = "24";
                             newimage.height = "24";
-                            newimage.onclick = "markSelf()";
+                            newimage.onclick = "markSelf(this)";
                             
                             document.getElementById("image1").appendChild(newimage);
 
-                            newimage.addEventListener("click", markSelf(this));
-
-                            function markSelf(name){
-                                console.log("Name: " + name.name);
+                            function markSelf(obj){
+                                console.log("Name: " + obj.name);
                             }
                         }
                     </script>

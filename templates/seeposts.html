@@ -95,8 +95,8 @@
                             const newimage = document.createElement("input");
 
                             newimage.type = "image"
-                            newimage.value = "VALUE" + parseInt(serial.charAt(1));
-                            newimage.name = serial;
+                            newimage.value = serial;
+                            newimage.name = "marker_button";
                             newimage.className = "image2";
                             newimage.style = "background: transparent; border: none; top: " + y.toString() + "px; left: " + x.toString() + "px;";
                             newimage.src = "{{ marker }}";

@@ -59,7 +59,7 @@ def display():
     elif request.form.get("M1") == "VALUE1":
         output = "M1"
 
-    return render_template("display.html", content = output)
+    return render_template("display.html", content = "amogus")
 
 if __name__ == "__main__":
     app.run()

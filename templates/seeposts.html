@@ -101,12 +101,12 @@
                             newimage.src = "{{ marker }}";
                             newimage.width = "24";
                             newimage.height = "24";
-                            newimage.onclick = "markSelf(this)";
+                            newimage.onclick = "markSelf()";
                             
                             document.getElementById("image1").appendChild(newimage);
 
-                            function markSelf(obj){
-                                console.log("Name: " + obj.name);
+                            function markSelf(){
+                                console.log("Name: ");
                             }
                         }
                     </script>

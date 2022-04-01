@@ -49,11 +49,11 @@
                             // The content between every element in newbreaks[] ("/") is a unique message
                             // The content between every element in breaks[] ("|") is as follows:
                             /*
-                            - The first |, and every third | following it (any | where index(|) = 1 + 3n, where n is a nonnegative integer), delineates the split between serial number and text content
+                            - The first |, and every third | following it (any | where index(|) = 3n, where n is a nonnegative integer), delineates the split between serial number and text content
                                - The serial number is the text between any / and the appropriate |
-                            - The second |, and every third | following it, delineates the split between the text and the first coordinate (lat)
+                            - The second |, and every third | following it (any | where index(|) = 1 + 3n), delineates the split between the text and the first coordinate (lat)
                                - The text is the text between the appropriate | and the previous |
-                            - The third |, and every third | following it, delineates the split between the first coordinate and the second coordinate (long)
+                            - The third |, and every third | following it (any | where index(|) = 2 + 3n), delineates the split between the first coordinate and the second coordinate (long)
                                - The latitude is the text between the appropriate | and the previous |
                                - The longitude is the text between the appropriate | and the next /
                             */
@@ -93,7 +93,6 @@
                             let y = lat * -8.5 + 765;
 
                             const newimage = document.createElement("input");
-                            // const imagelink = document.createElement("a");
 
                             newimage.type = "image"
                             newimage.name = serial;
@@ -102,12 +101,15 @@
                             newimage.src = "{{ marker }}";
                             newimage.width = "24";
                             newimage.height = "24";
+                            newimage.onclick = "markSelf()";
                             
-                            // imagelink.href = "display";
-
                             document.getElementById("image1").appendChild(newimage);
-                            // document.getElementById("image1").appendChild(imagelink);
-                            // imagelink.appendChild(newimage);
+
+                            newimage.addEventListener("click", markSelf(this));
+
+                            function markSelf(name){
+                                console.log("Name: " + name.name);
+                            }
                         }
                     </script>
 

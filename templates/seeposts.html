@@ -20,7 +20,7 @@
 <!--map jpg: https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg-->
 
 <body> <!--position guide: 8.5 px = 1 degree. prime meridian: 1531 px, equator: 765 px-->
-    <form action="/display" method="/POST">
+    <form action="/display" method="POST">
         <div class="parent" width="3087" height="1554">
             <div id="image1" class="image1">
                 <img src="{{ map }}" width="3087" height="1554">
@@ -94,13 +94,11 @@
 
                             const newimage = document.createElement("input");
 
-                            newimage.type = "image"
-                            newimage.value = "M0";
-                            console.log(serial);
+                            newimage.type = "submit"
+                            newimage.value = serial;
                             newimage.name = "marker_button";
                             newimage.className = "image2";
-                            newimage.style = "background: transparent; border: none; top: " + y.toString() + "px; left: " + x.toString() + "px;";
-                            newimage.src = "{{ marker }}";
+                            newimage.style = "background-image: {{ marker }}; background: transparent; border: none; top: " + y.toString() + "px; left: " + x.toString() + "px;";
                             newimage.width = "24";
                             newimage.height = "24";
                             

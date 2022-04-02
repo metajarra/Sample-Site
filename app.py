@@ -59,11 +59,7 @@ def writeToMarkers():
 def display():
     output = "zoop"
     if request.method == "POST":
-        if request.form["marker_button"] == "M0":
-            output = "M0"
-
-        elif request.form["marker_button"] == "M1":
-            output = "M1"
+        output = request.form["marker_button"]:
 
     return render_template("display.html", content = output)
 

@@ -61,49 +61,49 @@ def display():
     marker_index = ""
     if request.method == "POST":
         marker_index = request.form["marker_button"]
-    
-    n = open("markers.txt", "r")
-    ncontent = n.read()
-    n.close()
-
-    breaks = []
-    newbreaks = []
-
-    serials = []
-    texts = []
-    lats = []
-    longs = []
-
-    for i in range (len(ncontent)):
-        if ncontent[i] == "|":
-            breaks.append(i)
         
-        elif ncontent[i] == "/":
-            newbreaks.append(i)
+        n = open("markers.txt", "r")
+        ncontent = n.read()
+        n.close()
 
-    for i in range(len(newbreaks)):
-        for j in range(3):
-            if j % 3 == 0:
-                serials.append(ncontent[newbreaks[i] + 1:breaks[j + (3 * i)]])
+        breaks = []
+        newbreaks = []
+
+        serials = []
+        texts = []
+        lats = []
+        longs = []
+
+        for i in range (len(ncontent)):
+            if ncontent[i] == "|":
+                breaks.append(i)
             
-            elif (j - 1) % 3 == 0:
-                texts.append(ncontent[breaks[j - 1 + (3 * i)]:breaks[j + (3 * i)]])
+            elif ncontent[i] == "/":
+                newbreaks.append(i)
 
-            elif (j - 2) % 3 == 0:
-                lats.append(ncontent[breaks[j - 1 + (3 * i)]:breaks[j + (3 * i)]])
-
-                if(i < len(newbreaks)):
-                    longs.append(ncontent[breaks[j + (3 * i)]:newbreaks[i + 1]])
+        for i in range(len(newbreaks)):
+            for j in range(3):
+                if j % 3 == 0:
+                    serials.append(ncontent[newbreaks[i] + 1:breaks[j + (3 * i)]])
                 
-                else:
-                    longs.append(ncontent[breaks[j + (3 * i)]:len(ncontent)])
+                elif (j - 1) % 3 == 0:
+                    texts.append(ncontent[breaks[j - 1 + (3 * i)]:breaks[j + (3 * i)]])
 
-    local_index = serials.index(marker_index)
-    text = texts[local_index]
-    lat = lats[local_index]
-    long = longs[local_index]
+                elif (j - 2) % 3 == 0:
+                    lats.append(ncontent[breaks[j - 1 + (3 * i)]:breaks[j + (3 * i)]])
 
-    return render_template("display.html", text = "text", lat = "lat", long = "long")
+                    if(i < len(newbreaks)):
+                        longs.append(ncontent[breaks[j + (3 * i)]:newbreaks[i + 1]])
+                    
+                    else:
+                        longs.append(ncontent[breaks[j + (3 * i)]:len(ncontent)])
+
+        local_index = serials.index(marker_index)
+        text = texts[local_index]
+        lat = lats[local_index]
+        long = longs[local_index]
+
+    return render_template("display.html", text = text, lat = lat, long = long)
 
 if __name__ == "__main__":
     app.run()

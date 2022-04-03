@@ -27,9 +27,49 @@
     }
 </style>
 
-<div class="center-screen">
+<div class="center-screen" id="maindiv">
     <form method="/POST">
-        <p>Text: {{ text }}</p>
-        <p>Latitude: {{ lat }}, Longitude: {{ long }}</p>
+        {% if content %}
+            
+            <script>
+                let markers = "{{ content }}";
+                let index = "{{ index }}";
+                let breaks = [];
+                let newbreaks = [];
+
+                let text = "";
+                let lat = "";
+                let long = "";
+
+                let result = markers.indexOf(index) - 1;
+
+                for(let i = result + 1; i < 4; i++){
+                    if(markers.charAt(i) == "|"){
+                        breaks.push(i); // breaks[0] is the first |, breaks[1] is the second |, breaks[2] is the third |
+                    }
+
+                    else if(markers.charAt(i) == "/"){
+                        newbreaks.push(i); // newbreaks[0] is the final /
+                    }
+                }
+
+                text = markers.substring(breaks[0], breaks[1]);
+                lat = markers.substring(breaks[1], breaks[2]);
+                long = markers.substring(breaks[2], newbreaks[0]);
+
+                const textpara = document.createElement("p");
+                const latpara = document.createElement("p");
+                const longpara = document.createElement("p");
+
+                textpara.innerHTML = text;
+                latpara.innerHTML = lat;
+                longpara.innerHTML = long;
+
+                document.getElementById("maindiv").appendChild(textpara);
+                document.getElementById("maindiv").appendChild(latpara);
+                document.getElementById("maindiv").appendChild(longpara);
+            </script>
+
+        {% endif %}
     </form>
 </div>

@@ -103,7 +103,7 @@ def display():
     lat = lats[local_index]
     long = longs[local_index]
 
-    return render_template("display.html", text = text, lat = lat, long = long)
+    return render_template("display.html", text = "text", lat = "lat", long = "long")
 
 if __name__ == "__main__":
     app.run()

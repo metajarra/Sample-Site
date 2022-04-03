@@ -47,6 +47,7 @@
                 let i = 0
 
                 while(filled < 4){
+                    i++;
                     if(markers.charAt(i) == "|"){
                         breaks.push(i); // breaks[0] is the first |, breaks[1] is the second |, breaks[2] is the third |
                         filled++;
@@ -56,13 +57,11 @@
                         newbreaks.push(i); // newbreaks[0] is the final /
                         filled++;
                     }
-
-                    i++;
                 }
 
-                text = markers.substring(breaks[0], breaks[1]);
-                lat = markers.substring(breaks[1], breaks[2]);
-                long = markers.substring(breaks[2], newbreaks[0]);
+                text = markers.substring(breaks[0] + 1, breaks[1]);
+                lat = markers.substring(breaks[1] + 1, breaks[2]);
+                long = markers.substring(breaks[2] + 1, newbreaks[0]);
 
                 const textpara = document.createElement("p");
                 const latpara = document.createElement("p");

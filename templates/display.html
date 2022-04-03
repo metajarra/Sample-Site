@@ -46,16 +46,14 @@
                 let filled = 0;
                 let i = 0
 
-                while(filled < 4){
+                while(breaks.length < 3 && newbreaks.length < 1){
                     i++;
                     if(markers.charAt(i) == "|"){
                         breaks.push(i); // breaks[0] is the first |, breaks[1] is the second |, breaks[2] is the third |
-                        filled++;
                     }
 
                     else if(markers.charAt(i) == "/"){
                         newbreaks.push(i); // newbreaks[0] is the final /
-                        filled++;
                     }
                 }
 

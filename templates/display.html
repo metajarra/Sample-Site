@@ -3,11 +3,16 @@
 <style>
     .center-screen {
         display: flex;
+        position: absolute;
         background-color: darkcyan;
         justify-content: center;
         align-items: center;
         text-align: center;
-        margin: 20%;
+        top: 50%;
+        left: 50%;
+        height: 75%;
+        width: 75%;
+        transform: translate(-50%, -50%);
     }
 
     p {
@@ -23,12 +28,12 @@
         margin: 1%;
     }
 
-    .background {
+    body {
         background-color: lightblue;
     }
 </style>
 
-<div class="background">
+<body>
     <div class="center-screen" id="maindiv">
         <form method="/POST">
             {% if content %}
@@ -101,4 +106,4 @@
             {% endif %}
         </form>
     </div>
-</div>
+</body>

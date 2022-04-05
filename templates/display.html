@@ -43,9 +43,6 @@
 
                 let result = markers.indexOf(index) - 1;
                 
-                console.log(markers);
-                console.log(index);
-
                 for(let i = 0; i < markers.length; i++){
                     if(markers.charAt(i) == "|"){
                         breaks.push(i);
@@ -85,10 +82,6 @@
                         }
                     }
                 }
-
-                text = markers.substring(breaks[0] + 1, breaks[1]);
-                lat = markers.substring(breaks[1], breaks[2]);
-                long = markers.substring(breaks[2], newbreaks[0]);
 
                 const textpara = document.createElement("p");
                 const latpara = document.createElement("p");

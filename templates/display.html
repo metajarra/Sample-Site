@@ -42,8 +42,44 @@
                 let long = "";
 
                 let result = markers.indexOf(index) - 1;
+                
                 console.log(markers);
-                console.log(result);
+                console.log(index);
+
+                let done = false;
+                let i = 0;
+
+                while(!done){
+                    i++;
+
+                    if(markers.charAt(i) == "|"){
+                        breaks.push(i);
+                    }
+
+                    else if(markers.charAt(i) == "/"){
+                        newbreaks.push(i);
+                    }
+
+                    if(breaks.length == 2){
+                        text = markers.substring(breaks[0], breaks[1]);
+                    }
+
+                    if(breaks.length == 3){
+                        lat = markers.substring(breaks[1], breaks[2]);
+
+                        if(newbreaks.length > 0){
+                            long = markers.substring(breaks[2], newbreaks[0]);
+                        }
+
+                        else{
+                            long = markers.substring(breaks[2], markers.length - 1);
+                        }
+                    }
+
+                    if(text != "" && lat != "" && long != ""){
+                        done = true;
+                    }
+                }
 
                 text = markers.substring(breaks[0] + 1, breaks[1]);
                 lat = markers.substring(breaks[1], breaks[2]);

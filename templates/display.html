@@ -7,7 +7,6 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        min-height: 100vh;
         margin: 20%;
     }
 
@@ -90,9 +89,9 @@
                     const latpara = document.createElement("p");
                     const longpara = document.createElement("p");
 
-                    textpara.innerHTML = text;
-                    latpara.innerHTML = lat;
-                    longpara.innerHTML = long;
+                    textpara.innerHTML = "Text: " + text;
+                    latpara.innerHTML = "Latitude: " + lat;
+                    longpara.innerHTML = "Longitude: " + long;
 
                     document.getElementById("maindiv").appendChild(textpara);
                     document.getElementById("maindiv").appendChild(latpara);

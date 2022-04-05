@@ -43,27 +43,21 @@
 
                 let result = markers.indexOf(index) - 1;
 
-                let filled = 0;
-                let i = 0
-
-                while(breaks.length < 3 && newbreaks.length < 1){
-                    i++;
-                    if(markers.charAt(i) == "|"){
-                        breaks.push(i); // breaks[0] is the first |, breaks[1] is the second |, breaks[2] is the third |
-                    }
-
-                    else if(markers.charAt(i) == "/"){
-                        newbreaks.push(i); // newbreaks[0] is the final /
-                    }
-                }
+                
 
                 text = markers.substring(breaks[0] + 1, breaks[1]);
-                lat = markers.substring(breaks[1] + 1, breaks[2]);
-                long = markers.substring(breaks[2] + 1, newbreaks[0]);
+                lat = markers.substring(breaks[1], breaks[2]);
+                long = markers.substring(breaks[2], newbreaks[0]);
 
                 const textpara = document.createElement("p");
                 const latpara = document.createElement("p");
                 const longpara = document.createElement("p");
+
+                const testpara1 = document.createElement("p");
+                const testpara2 = document.createElement("p");
+
+                testpara1.innerHTML = markers;
+                testpara2.innerHTML = index;
 
                 textpara.innerHTML = text;
                 latpara.innerHTML = lat;
@@ -72,6 +66,9 @@
                 document.getElementById("maindiv").appendChild(textpara);
                 document.getElementById("maindiv").appendChild(latpara);
                 document.getElementById("maindiv").appendChild(longpara);
+
+                document.getElementById("maindiv").appendChild(testpara1);
+                document.getElementById("maindiv").appendChild(testpara2);
             </script>
 
         {% endif %}

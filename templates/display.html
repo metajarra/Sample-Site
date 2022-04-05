@@ -42,8 +42,8 @@
                 let long = "";
 
                 let result = markers.indexOf(index) - 1;
-
-                
+                console.log(markers);
+                console.log(result);
 
                 text = markers.substring(breaks[0] + 1, breaks[1]);
                 lat = markers.substring(breaks[1], breaks[2]);
@@ -53,12 +53,6 @@
                 const latpara = document.createElement("p");
                 const longpara = document.createElement("p");
 
-                const testpara1 = document.createElement("p");
-                const testpara2 = document.createElement("p");
-
-                testpara1.innerHTML = markers;
-                testpara2.innerHTML = index;
-
                 textpara.innerHTML = text;
                 latpara.innerHTML = lat;
                 longpara.innerHTML = long;
@@ -66,9 +60,6 @@
                 document.getElementById("maindiv").appendChild(textpara);
                 document.getElementById("maindiv").appendChild(latpara);
                 document.getElementById("maindiv").appendChild(longpara);
-
-                document.getElementById("maindiv").appendChild(testpara1);
-                document.getElementById("maindiv").appendChild(testpara2);
             </script>
 
         {% endif %}

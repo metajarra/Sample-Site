@@ -61,19 +61,21 @@
                     }
 
                     if(breaks.length == 2){
+                        console.log("c1");
                         text = markers.substring(breaks[0], breaks[1]);
                     }
 
                     if(breaks.length == 3){
+                        console.log("c2");
                         lat = markers.substring(breaks[1] + 1, breaks[2]);
 
                         if(newbreaks.length > 0){
-                            console.log("1");
+                            console.log("c3");
                             long = markers.substring(breaks[2] + 1, newbreaks[0]);
                         }
 
                         else{
-                            console.log("2");
+                            console.log("c4");
                             long = markers.substring(breaks[2] + 1, markers.length - 1);
                         }
                     }

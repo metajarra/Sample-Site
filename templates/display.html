@@ -65,14 +65,16 @@
                     }
 
                     if(breaks.length == 3){
-                        lat = markers.substring(breaks[1], breaks[2]);
+                        lat = markers.substring(breaks[1] + 1, breaks[2]);
 
                         if(newbreaks.length > 0){
-                            long = markers.substring(breaks[2], newbreaks[0]);
+                            console.log("1");
+                            long = markers.substring(breaks[2] + 1, newbreaks[0]);
                         }
 
                         else{
-                            long = markers.substring(breaks[2], markers.length - 1);
+                            console.log("2");
+                            long = markers.substring(breaks[2] + 1, markers.length - 1);
                         }
                     }
 
